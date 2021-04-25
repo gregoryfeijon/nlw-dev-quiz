@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nlw_dev_quiz/core/app_gradients.dart';
-import 'package:nlw_dev_quiz/core/app_images.dart';
 import 'package:nlw_dev_quiz/core/app_text_styles.dart';
 import 'package:nlw_dev_quiz/home/widgets/score-card/score_card_widget.dart';
+import 'package:nlw_dev_quiz/shared/models/user_model.dart';
 
-class ApppBarWidget extends PreferredSize {
-  ApppBarWidget()
+class AppBarWidget extends PreferredSize {
+  final UserModel user;
+  AppBarWidget({required this.user})
       : super(
           preferredSize: Size.fromHeight(250),
           child: Container(
@@ -28,7 +29,7 @@ class ApppBarWidget extends PreferredSize {
                           style: AppTextStyles.title,
                           children: [
                             TextSpan(
-                                text: "Gregory Feijon",
+                                text: user.name,
                                 style: AppTextStyles.titleBold),
                           ],
                         ),
@@ -39,7 +40,7 @@ class ApppBarWidget extends PreferredSize {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                            image: NetworkImage(AppImages.fotoGithub),
+                            image: NetworkImage(user.photoUrl),
                           ),
                         ),
                       ),
