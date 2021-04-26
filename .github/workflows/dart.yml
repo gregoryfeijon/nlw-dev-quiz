@@ -17,13 +17,11 @@ jobs:
           java-version: '12.x'
 
       - uses: subosito/flutter-action@v1.4.0
-      
-      - name: Install dependencies
-        - run: flutter pub get
+        - name: Install dependencies
+          run: flutter pub get
 
-      - name: Formatting Issues
-        - run: flutter format --set-exit-if-changed .
-    
-      # Statically analyze the Dart code for any errors.
-      - name: Analyze for errors
-        - run: flutter analyze .
+        - name: Formatting Issues
+          run: flutter format --set-exit-if-changed .
+
+        - name: Analyze for errors
+          run: flutter analyze .
